@@ -11,7 +11,7 @@ class StorePropertyOwnerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false; // You can add authorization logic here if needed
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class StorePropertyOwnerRequest extends FormRequest
             'address' => 'nullable|string|max:255',
             'city' => 'nullable|string|max:255',
             'county' => 'nullable|string|max:255',
-            'country' => 'nullable|string|max:255|default:Kenya',
+            'country' => 'nullable|string|max:255',
 
             // Property Owner specific fields
             'owner_type' => 'nullable|string|in:individual,company,trust,partnership',
@@ -54,7 +54,7 @@ class StorePropertyOwnerRequest extends FormRequest
             'owner_county' => 'nullable|string|max:255',
             'state' => 'nullable|string|max:255',
             'postal_code' => 'nullable|string|max:20',
-            'owner_country' => 'nullable|string|max:255|default:Kenya',
+            'owner_country' => 'nullable|string|max:255',
 
             // Emergency Contact
             'emergency_contact_name' => 'nullable|string|max:255',

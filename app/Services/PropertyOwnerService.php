@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Contracts\PropertyOwnerRepositoryInterface;
-use App\Http\Requests\Api\V1\StorePropertyOwnerRequest;
 use App\Models\User;
 
 class PropertyOwnerService
@@ -15,8 +14,11 @@ class PropertyOwnerService
         $this->repository = $repository;
     }
 
-    public function registerPropertyOwner(StorePropertyOwnerRequest $request): User
+    /**
+     * @param array<string, mixed> $data
+     */
+    public function registerPropertyOwner(array $data): User
     {
-        return $this->repository->storePropertyOwner($request);
+        return $this->repository->storePropertyOwner($data);
     }
 }

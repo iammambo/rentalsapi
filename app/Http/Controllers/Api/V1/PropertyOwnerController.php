@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\StorePropertyOwnerRequest;
 use App\Http\Resources\Api\V1\PropertyOwnerResource;
 use App\Services\PropertyOwnerService;
-use Illuminate\Http\JsonResponse; 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
 class PropertyOwnerController extends Controller
@@ -27,7 +27,7 @@ class PropertyOwnerController extends Controller
     public function storePropertyOwner(StorePropertyOwnerRequest $request): JsonResponse
     {
         try {
-            $user = $this->service->registerPropertyOwner($request);
+            $user = $this->service->registerPropertyOwner($request->validated());
 
             return response()->json([
                 'success' => true,
