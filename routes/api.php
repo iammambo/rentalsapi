@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\PropertyOwnerController;
+use App\Http\Controllers\Api\V1\UnitsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -11,4 +12,5 @@ Route::get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::post('/property-owners', [PropertyOwnerController::class, 'storePropertyOwner']);
+    Route::post('/units/store', [UnitsController::class, 'storeUnit']);
 });
